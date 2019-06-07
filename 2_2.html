@@ -1,0 +1,76 @@
+<input type="text" id="myInput" placeholder="Search for names..">
+<input type="button" onclick="myFunction()"value="GO" >
+
+<style>
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even){background-color: #f2f2f2}
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+  </style>
+
+
+<table id="myTable">
+  <tr class="header">
+    <th style="width:30%;">Roll Number</th>
+    <th style="width:50%;">Name</th>
+    <th style="width:20%;">Year</th>
+  </tr>
+  <tr>
+    <td>180447</td>
+    <td>Muskan Garg</td>
+    <td>Y18</td>
+  </tr>
+  <tr>
+    <td>180094</td>
+    <td>Anjali Devra</td>
+    <td>Y18</td>
+  </tr>
+  <tr>
+    <td>180817</td>
+    <td>Tanu Modi</td>
+    <td>Y18</td>
+  </tr>
+  <tr>
+    <td>180777</td>
+    <td>Rythm Agarwal</td>
+    <td>Y18</td>
+  </tr>
+</table> 
+
+<script>
+    function myFunction() {
+      // Declare variables
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+    
+      // Loop through all table rows, and hide those who don't match the search query
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[1];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+    </script>
+    
+    
